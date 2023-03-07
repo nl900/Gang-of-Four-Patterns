@@ -1,4 +1,4 @@
-class FoodOrderBuilder private constructor(
+class FoodOrder private constructor(
     val bread: String?,
     val condiments: String?,
     val meat: String?,
