@@ -18,3 +18,12 @@ class FoodOrderBuilder private constructor(
         fun build() = FoodOrder(bread, condiments, meat, fish)
     }
 }
+
+fun main(args: Array<String>) {
+  
+    val foodOrder = FoodOrder.Builder()
+        .bread("white")
+        .meat("bacon")
+        .condiments("olive oil")
+        .build()
+}
