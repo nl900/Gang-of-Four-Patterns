@@ -1,3 +1,7 @@
+/*
+Separates an algorithm from the object allowing to add new operations to the object without modifying the strucutre.
+*/
+
 sealed class Shape()
 class Square(val side: Double) : Shape()
 class Circle(val radius: Double) : Shape()
