@@ -1,5 +1,8 @@
 /*
 Separates an algorithm from the object allowing to add new operations to the object without modifying the strucutre.
+
+Sealed class allow fix type hierarchies. They're useful in strict inheritance hierarchy where a specific set of subclasses
+are possible and each of the options are functionally different.
 */
 
 sealed class Shape()
