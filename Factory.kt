@@ -24,8 +24,14 @@ abstract class CarPartsFactory {
 }
 
 class CarPartsFactoryProvider {
-    // reified keyword allows the function to access the generic type M as a normal class in the function body at runTime
-    // otherwise it's only available at compile time and erased at runtime
+    /*
+    inline keyword eliminates the memory overhead for the memory allocation for the higher order function or lambda expression
+    stored as objects. inline keyword requests the compiler to not allocate memory and copy the inlined code of the function at the
+    calling place
+
+    reified keyword allows the function to access the generic type M as a normal class in the function body at runTime
+    otherwise it's only available at compile time and erased at runtime
+     */
     inline fun <reified M : CarPartsFactory> createFactory(): CarPartsFactory {
         return when (M::class) {
             AudiPartsFactory::class -> AudiPartsFactory()
