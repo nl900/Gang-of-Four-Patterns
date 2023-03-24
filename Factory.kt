@@ -15,7 +15,7 @@ Abstract factory is used for dependency inection / strategy, to create a whole f
 and have common base classes
 An interface that allows a family of closely related classes to be instantiated
 The example below, the interface acts as a blueprint for what kind of car parts the independent factories should build and
-from what arguments. The factories / subclasses will then build the parts based on the requirements and processes specific
+from what arguments. The factories / subclasses will then build the parts based on the specific requirements and processes 
  */
 abstract class CarPartsFactory {
     abstract fun buildEngine(): Engine
