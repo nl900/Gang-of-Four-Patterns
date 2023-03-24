@@ -43,23 +43,18 @@ class CupertinoDialogFactory : DialogFactory {
 }
 
 class DialogFactoryProvider {
-    companion object {
-        fun getDialogFactory(factoryType: String): DialogFactory? {
-            return when (factoryType) {
-                "material" -> MaterialDialogFactory()
-                "cupertino" -> CupertinoDialogFactory()
-                else -> null
-            }
+    inline fun <reified F : DialogFactory> createDiaglogFactory(): DialogFactory {
+        return when (F::class) {
+            MaterialDialogFactory::class -> MaterialDialogFactory()
+            CupertinoAlertDialog::class -> CupertinoDialogFactory()
+            else -> throw IllegalArgumentException()
         }
     }
 }
 
+
 fun main(args: Array<String>) {
-    val materialDialogFactory = DialogFactoryProvider.getDialogFactory("material")
+    val materialDialogFactory = DialogFactoryProvider().createDiaglogFactory<MaterialDialogFactory>()
     val materialAlertDialog = materialDialogFactory?.createAlertDialog()
     materialAlertDialog?.show()
-
-    val cupertinoDialogFactory = DialogFactoryProvider.getDialogFactory("cupertino")
-    val cupertinoAlertDialog = cupertinoDialogFactory?.createAlertDialog()
-    cupertinoAlertDialog?.show()
 }
